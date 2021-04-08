@@ -9,6 +9,34 @@ interface Workflow {
 
   /**
    * The name of the GitHub event that triggers the workflow. You can provide a single event string, array of events, array of event types, or an event configuration map that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "Events that trigger workflows."
+   *
+   * @example Example using a single event
+   *
+   * ```ts
+   * // Triggered when code is pushed to any branch in a repository
+   * {
+   *   on: workflowDispatch()
+   * }
+   * ```
+   *
+   * @example Example using a list of events
+   *
+   * ```ts
+   * // Triggers the workflow on push or pull request events
+   * {
+   * on: [push(), pullRequest()]
+   * }
+   * ```
+   *
+   * @example Example using multiple events with activity types or configuration
+   *
+   * If you need to specify activity types or configuration for an event, you must configure each event separately. You must append a colon (:) to all events, including events without configuration.
+   *
+   * ``ts
+   * {
+   *   on: [push({ branches: 'main' }), pullRequest({ branches: 'main' }), pageBuild(), release({ types: 'created' })]
+   * }
+   * ```
    */
   on: Event | Event[]
 
@@ -25,6 +53,10 @@ interface Workflow {
    * When more than one default setting is defined with the same name, GitHub uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.
    */
   defaults?: any // TODO
+}
+
+const wf: Workflow = {
+  on: [],
 }
 
 export default Workflow
