@@ -15,6 +15,10 @@ type RepositoryDispatchEvent =
   | 'publicized'
   | 'privatized'
 
+type IgnorableOption<Key> = Key extends string
+  ? { [key in Key | `${Key}-ignore`]?: string[] }
+  : never
+
 export const schedule = (crontab: string, ...additional: string[]) =>
   ({
     name: 'schedule',
@@ -32,14 +36,14 @@ export const repositoryDispatch = (...events: RepositoryDispatchEvent[]) => ({
   options: events.length > 0 ? { types: events } : undefined,
 })
 
-export const push = (...branches: string[]) =>
+export const push = (options?: IgnorableOption<'branches' | 'tags' | 'paths'>) =>
   ({
     name: 'push',
-    options: branches.length > 0 ? { branches } : undefined,
+    options,
   } as const)
 
-export const pullRequest = (...branches: string[]) =>
+export const pullRequest = (options?: IgnorableOption<'branches' | 'tags' | 'paths'>) =>
   ({
     name: 'pull_request',
-    options: branches.length > 0 ? { branches } : undefined,
+    options,
   } as const)
