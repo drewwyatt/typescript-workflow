@@ -1,0 +1,12 @@
+{
+  "name": "typescript-workflow",
+  "version": "0.1.0",
+  "description": "Generate Github Workflows from typescript files",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node12": "^1.0.7",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
+}
