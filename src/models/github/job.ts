@@ -1,3 +1,4 @@
+import type Container from './container'
 import type Step from './step'
 import type Strategy from './strategy'
 
@@ -118,6 +119,15 @@ interface Job {
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error
    */
   continueOnError?: boolean | string
+
+  /**
+   * A container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
+   *
+   * If you do not set a container, all steps will run directly on the host specified by runs-on unless a step refers to an action configured to run in a container.
+   *
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer
+   */
+  container?: Container
 }
 
 export default Job
