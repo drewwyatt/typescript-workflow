@@ -128,6 +128,19 @@ interface Job {
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer
    */
   container?: Container
+
+  /**
+   * Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner automatically creates a Docker network and manages the life cycle of the service containers.
+   *
+   * If you configure your job to run in a container, or your step uses container actions, you don't need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.
+   *
+   * If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
+   *
+   * For more information about the differences between networking service containers, see "About service containers."
+   *
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices
+   */
+  services?: any // TODO
 }
 
 export default Job
