@@ -1,4 +1,5 @@
 import type Step from './step'
+import type Strategy from './strategy'
 
 interface Job {
   /**
@@ -102,6 +103,12 @@ interface Job {
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps
    */
   steps: Step[]
+
+  /**
+   * A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy
+   */
+  strategy?: Strategy
 }
 
 export default Job
