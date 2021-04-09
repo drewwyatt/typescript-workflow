@@ -64,8 +64,4 @@ interface Workflow {
   jobs: Record<string, Job>
 }
 
-const w: Workflow = {
-  jobs: {},
-}
-
 export default Workflow
