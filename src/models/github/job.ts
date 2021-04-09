@@ -109,6 +109,15 @@ interface Job {
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy
    */
   strategy?: Strategy
+
+  /**
+   * Prevents a workflow run from failing when a job fails. Set to true to allow a workflow run to pass when this job fails.
+   *
+   * You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with node set to 13 to fail without failing the workflow run.
+   *
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error
+   */
+  continueOnError?: boolean | string
 }
 
 export default Job
