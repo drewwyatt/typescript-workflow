@@ -1,3 +1,5 @@
+import type Step from './step'
+
 interface Job {
   /**
    * The name of the job displayed on GitHub.
@@ -85,6 +87,21 @@ interface Job {
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif
    */
   if?: string // TODO
+
+  /**
+   * The maximum number of minutes to let a job run before GitHub automatically cancels it. Default: 360
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepstimeout-minutes
+   */
+  timeoutMinutes?: number
+
+  /**
+   * A job contains a sequence of tasks called steps. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. GitHub provides built-in steps to set up and complete a job.
+   *
+   * You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "Usage limits and billing" for GitHub-hosted runners and "About self-hosted runners" for self-hosted runner usage limits.
+   *
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps
+   */
+  steps: Step[]
 }
 
 export default Job
