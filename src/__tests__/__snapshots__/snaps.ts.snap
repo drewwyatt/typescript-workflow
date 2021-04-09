@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`I can take a snapshot of an arbitrary string: "wow" 1`] = `"wow"`;
+exports[`I can take a snapshot of an arbitrary string 1`] = `
+"name: My Sample Workflow
+'on':
+  - name: pull_request
+  - name: push
+    options:
+      branches:
+        - main
+jobs:
+  say-hello:
+    runsOn: ubuntu-latest
+    steps:
+      - run: echo \\"hello, world\\"
+"
+`;
