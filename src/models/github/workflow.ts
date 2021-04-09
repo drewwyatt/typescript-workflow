@@ -4,37 +4,26 @@ type Event = ReturnType<typeof events[keyof typeof events]>
 interface Workflow {
   /**
    * The name of your workflow. GitHub displays the names of your workflows on your repository's actions page. If you omit name, GitHub sets it to the workflow file path relative to the root of the repository.
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name
    */
   name?: string
 
   /**
    * The name of the GitHub event that triggers the workflow. You can provide a single event string, array of events, array of event types, or an event configuration map that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "Events that trigger workflows."
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
    *
-   * @example Example using a single event
+   * @example
    *
    * ```ts
+   *
    * // Triggered when code is pushed to any branch in a repository
    * {
    *   on: workflowDispatch()
    * }
-   * ```
    *
-   * @example Example using a list of events
-   *
-   * ```ts
    * // Triggers the workflow on push or pull request events
    * {
-   * on: [push(), pullRequest()]
-   * }
-   * ```
-   *
-   * @example Example using multiple events with activity types or configuration
-   *
-   * If you need to specify activity types or configuration for an event, you must configure each event separately. You must append a colon (:) to all events, including events without configuration.
-   *
-   * ``ts
-   * {
-   *   on: [push({ branches: 'main' }), pullRequest({ branches: 'main' }), pageBuild(), release({ types: 'created' })]
+   *   on: [push(), pullRequest()]
    * }
    * ```
    */
@@ -44,6 +33,7 @@ interface Workflow {
    * A map of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see jobs.<job_id>.env and jobs.<job_id>.steps[*].env.
    *
    * When more than one environment variable is defined with the same name, GitHub uses the most specific environment variable. For example, an environment variable defined in a step will override job and workflow variables with the same name, while the step executes. A variable defined for a job will override a workflow variable with the same name, while the job executes.
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#env
    */
   env?: Record<string, string>
 
@@ -51,12 +41,9 @@ interface Workflow {
    * A map of default settings that will apply to all jobs in the workflow. You can also set default settings that are only available to a job. For more information, see jobs.<job_id>.defaults.
    *
    * When more than one default setting is defined with the same name, GitHub uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.
+   * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#defaults
    */
   defaults?: any // TODO
-}
-
-const wf: Workflow = {
-  on: [],
 }
 
 export default Workflow
