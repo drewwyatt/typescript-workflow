@@ -40,7 +40,7 @@ interface Job {
    *
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
    */
-  runsOn:
+  'runs-on':
     | 'windows-latest'
     | 'windows-2019'
     | 'ubuntu-latest'
@@ -94,7 +94,7 @@ interface Job {
    * The maximum number of minutes to let a job run before GitHub automatically cancels it. Default: 360
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepstimeout-minutes
    */
-  timeoutMinutes?: number
+  'timeout-minutes'?: number
 
   /**
    * A job contains a sequence of tasks called steps. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. GitHub provides built-in steps to set up and complete a job.
@@ -118,7 +118,7 @@ interface Job {
    *
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error
    */
-  continueOnError?: boolean | string
+  'continue-on-error'?: boolean | string
 
   /**
    * A container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.

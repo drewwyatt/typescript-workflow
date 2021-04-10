@@ -1,6 +1,2 @@
-export { default as Container } from './github/container'
-export * from './github/events'
-export { default as Job } from './github/job'
-export { default as Step } from './github/step'
-export { default as Strategy } from './github/strategy'
-export { default as Workflow, Event } from './github/workflow'
+export * from './events'
+export { default as workflow } from './workflow'

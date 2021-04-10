@@ -16,13 +16,13 @@ interface Strategy {
    * When set to true, GitHub cancels all in-progress jobs if any matrix job fails. Default: true
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
    */
-  failFast?: boolean
+  'fail-fast'?: boolean
 
   /**
    * The maximum number of jobs that can run simultaneously when using a matrix job strategy. By default, GitHub will maximize the number of jobs run in parallel depending on the available runners on GitHub-hosted virtual machines.
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel
    */
-  maxParallel?: number
+  'max-parallel'?: number
 }
 
 export default Strategy

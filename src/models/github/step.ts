@@ -43,10 +43,10 @@ interface BaseStep {
    * Prevents a job from failing when a step fails. Set to true to allow a job to pass when this step fails.
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
    */
-  continueOnError?: boolean
+  'continue-on-error'?: boolean
 }
 
-interface RunStep extends BaseStep {
+export interface RunStep extends BaseStep {
   /**
    * Runs command-line programs using the operating system's shell. If you do not provide a name, the step name will default to the text specified in the run command.
    *
@@ -63,7 +63,7 @@ interface RunStep extends BaseStep {
    *
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun
    */
-  workingDirectory?: string
+  'working-directory'?: string
 
   /**
    * You can override the default shell settings in the runner's operating system using the shell keyword. You can use built-in shell keywords, or you can define a custom set of shell options.
@@ -73,7 +73,7 @@ interface RunStep extends BaseStep {
   shell?: 'bash' | 'pwsh' | 'python' | 'sh' | 'cmd' | 'powershell'
 }
 
-interface UsesStep extends BaseStep {
+export interface UsesStep extends BaseStep {
   /**
    * Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a published Docker container image.
    *
