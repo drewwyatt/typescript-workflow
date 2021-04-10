@@ -10,6 +10,9 @@ const handleEvents = (eventOrEvents: Event | Event[]) => {
   }, {})
 }
 
+export const toComments = (...lines: string[]) =>
+  lines.map(line => `# ${line}`).join('\n')
+
 export const toYaml = ({ on: events, ...workflow }: Workflow): string =>
   dump({
     on: handleEvents(events),
