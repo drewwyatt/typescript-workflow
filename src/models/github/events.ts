@@ -1,4 +1,4 @@
-import type { IgnorableOption, Nullable } from './utils'
+import type { IgnorableOption, Nullable } from '../utils'
 
 type Events = {
   page_build: null
