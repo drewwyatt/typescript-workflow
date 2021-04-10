@@ -1,12 +1,14 @@
 import fs from 'fs'
 import path from 'path'
-import { Workflow } from './models'
-import { toComments, toYaml } from './yaml'
+import { dump as toYaml } from 'js-yaml'
+import { Workflow } from './models/github'
 
 export type Options = {
   input: string
   output: string
 }
+
+const toComments = (...lines: string[]) => lines.map(line => `# ${line}`).join('\n')
 
 const toGeneratedComments = (options: Options) =>
   toComments(

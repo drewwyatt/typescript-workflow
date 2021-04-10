@@ -5,7 +5,7 @@ import type { Camelize } from './utils'
 
 export type CamelizedJob = Omit<Camelize<Job>, 'step' | 'strategy'> & {
   steps: CamelizedStep[]
-  strategy: CamelizedStrategy
+  strategy?: CamelizedStrategy
 }
 
 export const decamelize = ({
@@ -21,7 +21,7 @@ export const decamelize = ({
     'continue-on-error': continueOnError,
     'runs-on': runsOn,
     'timeout-minutes': timeoutMinutes,
-    strategy: decamelizeStrategy(strategy),
+    strategy: strategy && decamelizeStrategy(strategy),
     steps: steps.map(decamelizeStep),
   }
 }

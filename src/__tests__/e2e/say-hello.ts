@@ -1,11 +1,9 @@
-import { Workflow, push, pullRequest } from '../../models'
+import { workflow, push, pullRequest } from '../../models'
 
-const workflow: Workflow = {
+export default workflow({
   name: 'CI',
   on: [pullRequest(), push({ branches: ['main'] })],
   jobs: {
     'say-hello': { runsOn: 'ubuntu-latest', steps: [{ run: 'echo "hello, world"' }] },
   },
-}
-
-export default workflow
+})

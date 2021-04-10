@@ -5,7 +5,7 @@ import * as eventCreators from './events'
 import { CamelizedJob, decamelize } from './job'
 import type { Camelize } from './utils'
 
-type EventObject = ReturnType<typeof eventCreators[keyof typeof eventCreators]>[]
+type EventObject = ReturnType<typeof eventCreators[keyof typeof eventCreators]>
 
 type CamelizedWorkflow = Omit<Camelize<Workflow>, 'on' | 'jobs'> & {
   on: EventObject[]
@@ -15,7 +15,7 @@ type CamelizedWorkflow = Omit<Camelize<Workflow>, 'on' | 'jobs'> & {
 const mapEvents = (events: CamelizedWorkflow['on']) =>
   events.reduce<Partial<Events>>((acc, event) => {
     for (let key in event) {
-      ;(acc as any)[key] = event[key]
+      acc[key as keyof typeof event] = event[key as keyof typeof event]
     }
 
     return acc
