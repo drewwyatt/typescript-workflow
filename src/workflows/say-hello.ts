@@ -1,8 +1,8 @@
-import { workflow, push, pullRequest } from '../models'
+import { workflow, push } from '../models'
 
 export default workflow({
-  name: 'CI',
-  on: [pullRequest(), push({ branches: ['main'] })],
+  name: 'Say Hello!',
+  on: [push()],
   jobs: {
     'say-hello': { runsOn: 'ubuntu-latest', steps: [{ run: 'echo "hello, world"' }] },
   },

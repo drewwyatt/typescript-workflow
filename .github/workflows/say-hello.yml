@@ -3,11 +3,8 @@
 # 👉 To make changes to this file, see: ../../src/workflows/say-hello.ts
 
 'on':
-  pull_request: null
-  push:
-    branches:
-      - main
-name: CI
+  push: null
+name: Say Hello!
 jobs:
   say-hello:
     runs-on: ubuntu-latest
