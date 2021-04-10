@@ -1,0 +1,11 @@
+'on':
+  pull_request: null
+  push:
+    branches:
+      - main
+name: CI
+jobs:
+  say-hello:
+    runsOn: ubuntu-latest
+    steps:
+      - run: echo "hello, world"
