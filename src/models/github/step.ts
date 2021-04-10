@@ -43,7 +43,7 @@ interface BaseStep {
    * Prevents a job from failing when a step fails. Set to true to allow a job to pass when this step fails.
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error
    */
-  continueOnError?: boolean
+  'continue-on-error'?: boolean
 }
 
 interface RunStep extends BaseStep {
@@ -63,7 +63,7 @@ interface RunStep extends BaseStep {
    *
    * @link https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun
    */
-  workingDirectory?: string
+  'working-directory'?: string
 
   /**
    * You can override the default shell settings in the runner's operating system using the shell keyword. You can use built-in shell keywords, or you can define a custom set of shell options.

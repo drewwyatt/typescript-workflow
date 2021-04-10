@@ -1,6 +1,5 @@
-import * as events from './events'
+import type Events from './events'
 import type Job from './job'
-export type Event = ReturnType<typeof events[keyof typeof events]>
 
 interface Workflow {
   /**
@@ -29,7 +28,7 @@ interface Workflow {
    * }
    * ```
    */
-  on: Event | Event[]
+  on: keyof Events | keyof Events[] | Partial<Events>
 
   /**
    * A map of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see jobs.<job_id>.env and jobs.<job_id>.steps[*].env.
