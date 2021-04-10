@@ -46,7 +46,7 @@ interface BaseStep {
   'continue-on-error'?: boolean
 }
 
-interface RunStep extends BaseStep {
+export interface RunStep extends BaseStep {
   /**
    * Runs command-line programs using the operating system's shell. If you do not provide a name, the step name will default to the text specified in the run command.
    *
@@ -73,7 +73,7 @@ interface RunStep extends BaseStep {
   shell?: 'bash' | 'pwsh' | 'python' | 'sh' | 'cmd' | 'powershell'
 }
 
-interface UsesStep extends BaseStep {
+export interface UsesStep extends BaseStep {
   /**
    * Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a published Docker container image.
    *
