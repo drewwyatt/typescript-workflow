@@ -1,4 +1,16 @@
 import { dump } from 'js-yaml'
-import type { Workflow } from 'models'
+import type { Event, Workflow } from './models'
 
-export const toYaml = (workflow: Workflow): string => dump(workflow)
+const handleEvents = (eventOrEvents: Event | Event[]) => {
+  const events = Array.isArray(eventOrEvents) ? eventOrEvents : [eventOrEvents]
+  return events.reduce<Record<string, any>>((acc, event) => {
+    acc[event.name] = (event as any).options ?? null
+    return acc
+  }, {})
+}
+
+export const toYaml = ({ on: events, ...workflow }: Workflow): string =>
+  dump({
+    on: handleEvents(events),
+    ...workflow,
+  })

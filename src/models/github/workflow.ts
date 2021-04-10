@@ -1,6 +1,6 @@
 import * as events from './events'
 import type Job from './job'
-type Event = ReturnType<typeof events[keyof typeof events]>
+export type Event = ReturnType<typeof events[keyof typeof events]>
 
 interface Workflow {
   /**

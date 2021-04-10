@@ -1,13 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`I can take a snapshot of an arbitrary string 1`] = `
-"name: My Sample Workflow
-'on':
-  - name: pull_request
-  - name: push
-    options:
-      branches:
-        - main
+"'on':
+  pull_request:
+    branches-ignore:
+      - foo
+      - bar
+    tags:
+      - wow
+  push:
+    branches:
+      - main
+  release: null
+name: My Sample Workflow
 jobs:
   say-hello:
     runsOn: ubuntu-latest

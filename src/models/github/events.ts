@@ -78,7 +78,7 @@ export const pullRequest = (options?: IgnorableOption<'branches' | 'tags' | 'pat
     options,
   } as const)
 
-export const release = (options?: { types?: ReleaseEventTypes }) =>
+export const release = (options?: { types?: ReleaseEventTypes[] }) =>
   ({
     name: 'release',
     options,
