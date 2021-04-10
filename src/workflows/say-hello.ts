@@ -1,4 +1,4 @@
-import { workflow, push, pullRequest } from '../../models'
+import { workflow, push, pullRequest } from '../models'
 
 export default workflow({
   name: 'CI',

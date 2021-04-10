@@ -40,6 +40,6 @@ const cli = async (options: Options) => {
 }
 
 cli({
-  input: path.join(__dirname, './__tests__/workflows/say-hello.ts'),
+  input: path.join(__dirname, './workflows/say-hello.ts'),
   output: path.join(__dirname, '../.github/workflows/say-hello.yml'),
 })
