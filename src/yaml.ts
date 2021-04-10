@@ -1,3 +1,4 @@
+import { decamelizeKeys } from 'humps'
 import { dump } from 'js-yaml'
 import type { Event, Workflow } from './models'
 
@@ -12,5 +13,7 @@ const handleEvents = (eventOrEvents: Event | Event[]) => {
 export const toYaml = ({ on: events, ...workflow }: Workflow): string =>
   dump({
     on: handleEvents(events),
-    ...workflow,
+    ...decamelizeKeys(workflow, {
+      separator: '-',
+    }),
   })
