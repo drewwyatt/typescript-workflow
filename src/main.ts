@@ -21,12 +21,14 @@ const cli = async (options: Options) => {
     console.log(`Writing to file "${options.output}"...`)
     fs.writeFileSync(options.output, yaml, 'utf-8')
     console.log('Done!')
+    process.exit(0)
   } catch (error: unknown) {
     console.log('catch!', error)
+    process.exit(1)
   }
 }
 
 cli({
-  input: path.join(__dirname, './__tests__/e2e/ci.ts'),
-  output: path.join(__dirname, './__tests__/e2e/ci.yml'),
+  input: path.join(__dirname, './__tests__/e2e/say-hello.ts'),
+  output: path.join(__dirname, '../.github/workflows/say-hello.yml'),
 })
