@@ -3,7 +3,11 @@ import { CamelizedStep, decamelize as decamelizeStep } from './step'
 import { CamelizedStrategy, decamelize as decamelizeStrategy } from './strategy'
 import type { Camelize } from './utils'
 
-export type CamelizedJob = Omit<Camelize<Job>, 'step' | 'strategy'> & {
+export type CamelizedJob<Jobs extends string> = Omit<
+  Camelize<Job>,
+  'needs' | 'step' | 'strategy'
+> & {
+  needs?: Jobs[]
   steps: CamelizedStep[]
   strategy?: CamelizedStrategy
 }
@@ -15,7 +19,7 @@ export const decamelize = ({
   strategy,
   timeoutMinutes,
   ...job
-}: CamelizedJob): Job => {
+}: CamelizedJob<any>): Job => {
   return {
     ...job,
     'continue-on-error': continueOnError,

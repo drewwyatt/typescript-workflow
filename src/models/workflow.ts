@@ -7,12 +7,12 @@ import type { Camelize } from './utils'
 
 type EventObject = ReturnType<typeof eventCreators[keyof typeof eventCreators]>
 
-type CamelizedWorkflow = Omit<Camelize<Workflow>, 'on' | 'jobs'> & {
+type CamelizedWorkflow<Jobs extends string> = Omit<Camelize<Workflow>, 'on' | 'jobs'> & {
   on: EventObject[]
-  jobs: Record<string, CamelizedJob>
+  jobs: Record<Jobs, CamelizedJob<Jobs>>
 }
 
-const mapEvents = (events: CamelizedWorkflow['on']) =>
+const mapEvents = (events: CamelizedWorkflow<any>['on']) =>
   events.reduce<Partial<Events>>((acc, event) => {
     for (let key in event) {
       acc[key as keyof typeof event] = event[key as keyof typeof event]
@@ -21,12 +21,16 @@ const mapEvents = (events: CamelizedWorkflow['on']) =>
     return acc
   }, {})
 
-const workflow = ({ jobs, on: events, ...workflow }: CamelizedWorkflow): Workflow => {
+const workflow = <Jobs extends string>({
+  jobs,
+  on: events,
+  ...workflow
+}: CamelizedWorkflow<Jobs>): Workflow => {
   return {
     on: mapEvents(events),
     ...workflow,
     jobs: Object.entries(jobs).reduce<Workflow['jobs']>((acc, [id, job]) => {
-      acc[id] = decamelize(job)
+      acc[id] = decamelize(job as any)
       return acc
     }, {}),
   }
