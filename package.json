@@ -4,9 +4,11 @@
   "description": "Write github action workflows in typescript",
   "main": "src/index.ts",
   "scripts": {
-    "build:simple-workflow": "ts-node src/scripts/build-workflow.ts",
+    "build:scripted-workflow": "WORKFLOW_FILE='~/examples/scripted-workflow.ts' npm run build-workflow",
+    "build:simple-workflow": "WORKFLOW_FILE='~/examples/simple-workflow.ts' npm run build-workflow",
     "generate-schema-types": "ts-node src/scripts/schema-types.ts",
-    "postinstall": "npm run generate-schema-types"
+    "postinstall": "npm run generate-schema-types",
+    "build-workflow": "ts-node src/scripts/build-workflow.ts"
   },
   "keywords": [],
   "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",

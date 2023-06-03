@@ -1,7 +1,4 @@
-import type { GithubWorkflow, NormalJob } from '~/schemas/github-workflow'
-
-export const workflow = (spec: GithubWorkflow): GithubWorkflow => spec
-export const job = (spec: NormalJob): NormalJob => spec
+import { workflow, job } from '~/.'
 
 export default workflow({
   name: 'Simple Workflow',

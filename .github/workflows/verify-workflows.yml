@@ -13,5 +13,6 @@ jobs:
           version: 8.1
       - run: |
           pnpm install
+          npm run build:scripted-workflow
           npm run build:simple-workflow
       - run: git diff --exit-code
