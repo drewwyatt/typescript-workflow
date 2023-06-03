@@ -32,8 +32,6 @@ const main = async () => {
     .map(line => ` ${line}`)
     .join('\n')
 
-  console.log(definition.jobs['scripted-job'].steps)
-
   fs.writeFileSync(
     toFilePath(templatePath),
     format(String(workflowFile), 'yaml'),
