@@ -6,9 +6,14 @@ name: Scripted Workflow
 on: push
 jobs:
   scripted-job:
-    runs-on: ubuntu-latest
     steps:
       - name: check it
         run: |-
           echo "does this work?"
           echo "this has multiple lines"
+      - if: ${{ failure() }}
+        uses: ./actions/slack-notifier
+        with:
+          channel: '#dev-alerts'
+          token: ${{ secrets.SLACK_TOKEN }}
+    runs-on: ubuntu-latest

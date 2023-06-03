@@ -1,0 +1,21 @@
+# This doesn't actually send a slack message it's just to make
+# the scripted-workflow benefits more obvious
+
+name: Slack Notifier
+inputs:
+  channel:
+    required: true
+
+  token:
+    description: Slack token
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        echo 'Something went wrong...'
+        echo "(pretend this sent a message to ${CHANNEL})"
+      env:
+        CHANNEL: ${{ inputs.channel }}
+      shell: bash
