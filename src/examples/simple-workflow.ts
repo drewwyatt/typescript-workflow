@@ -9,7 +9,7 @@ export default workflow({
   jobs: {
     'say-hello': job({
       'runs-on': 'ubuntu-latest',
-      steps: [{ run: 'echo "hello, world!"' }],
+      steps: [{ run: 'echo "hello, world!"' }, { run: 'echo "this is another step!' }],
     }),
   },
 })
