@@ -1,0 +1,19 @@
+name: Simple Workflow
+
+on: push
+
+jobs:
+  build-workflow:
+    name: Build Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1
+      - run: npm run build:simple-workflow
+
+  trigger-workflow:
+    name: Trigger Workflow
+    needs: [build-workflow]
+    uses: ./src/examples/simple-workflow.yml

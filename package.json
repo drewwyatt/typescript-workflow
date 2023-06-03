@@ -4,7 +4,7 @@
   "description": "Write github action workflows in typescript",
   "main": "src/index.ts",
   "scripts": {
-    "build-workflow": "ts-node src/scripts/build-workflow.ts",
+    "build:simple-workflow": "ts-node src/scripts/build-workflow.ts",
     "generate-schema-types": "ts-node src/scripts/schema-types.ts",
     "postinstall": "npm run generate-schema-types"
   },
