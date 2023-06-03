@@ -6,5 +6,11 @@
   "scripts": {},
   "keywords": [],
   "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@tsconfig/node18": "^2.0.1",
+    "@types/node": "18",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.3"
+  }
 }
