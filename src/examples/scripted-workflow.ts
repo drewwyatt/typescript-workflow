@@ -32,9 +32,9 @@ export default workflow({
       {
         steps: [
           run('check it')`
-          echo "does this work?"
-          echo "this has multiple lines"
-        `,
+            echo "does this work?"
+            echo "this has multiple lines"
+          `,
         ],
       },
     ),
