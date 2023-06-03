@@ -1,0 +1,15 @@
+name: Verify Workflows
+
+on: push
+
+jobs:
+  build-and-verify-workflows:
+    name: Build Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1
+      - run: npm run build:simple-workflow
+      - run: git diff --exit-code
