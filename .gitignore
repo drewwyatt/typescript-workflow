@@ -1,2 +1,3 @@
 node_modules/
 src/schemas/*.d.ts
+src/examples/*.yml

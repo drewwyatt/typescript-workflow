@@ -1,7 +1,6 @@
-import * as fs from 'fs'
 import * as path from 'path'
 import prettier from 'prettier'
-const prettierConfig = require('../.prettierrc.json')
+const prettierConfig = require('../../.prettierrc.json')
 
 export const toLogger = (namespace: unknown, previousNamespaces: unknown[] = []) => {
   const combined = [...previousNamespaces, namespace]
@@ -14,9 +13,11 @@ export const toLogger = (namespace: unknown, previousNamespaces: unknown[] = [])
 }
 
 export const Paths = {
-  root: (...args: string[]) => path.join(__dirname, '../', ...args),
+  root: (...args: string[]) => path.join(__dirname, '../../', ...args),
+
+  examples: (...args: string[]) => path.join(__dirname, '../examples', ...args),
   scripts: (...args: string[]) => path.join(__dirname, ...args),
-  schemas: (...args: string[]) => path.join(__dirname, '../src/schemas', ...args),
+  schemas: (...args: string[]) => path.join(__dirname, '../schemas', ...args),
 }
 
 // const prettierConfig = JSON.parse(
