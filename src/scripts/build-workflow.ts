@@ -7,7 +7,7 @@ import { Paths, format } from './util'
 const workflowFile = new yaml.Document(simpleWorkflow)
 
 fs.writeFileSync(
-  Paths.examples('simple-workflow.yml'),
+  Paths.root('.github/workflows/simple-workflow.yml'),
   format(yaml.stringify(workflowFile), 'yaml'),
   'utf-8',
 )
