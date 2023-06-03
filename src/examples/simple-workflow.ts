@@ -5,7 +5,7 @@ export const job = (spec: NormalJob): NormalJob => spec
 
 export default workflow({
   name: 'Simple Workflow',
-  on: { workflow_call: {} },
+  on: ['push'],
   jobs: {
     'say-hello': job({
       'runs-on': 'ubuntu-latest',

@@ -1,6 +1,3 @@
 node_modules/
 src/schemas/*.d.ts
 src/examples/*.yml
-
-.github/workflows/*.yml
-!.github/workflows/build-and-trigger.yml
