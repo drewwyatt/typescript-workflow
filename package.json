@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "description": "Write github action workflows in typescript",
   "main": "src/index.ts",
-  "scripts": {},
+  "scripts": {
+    "generate-schema-types": "ts-node scripts/schema-types.ts",
+    "postinstall": "npm run generate-schema-types"
+  },
   "keywords": [],
   "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",
   "license": "UNLICENSED",
   "devDependencies": {
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "18",
+    "@types/prettier": "^2.7.3",
+    "json-schema-to-typescript": "^13.0.1",
     "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.3"
   }
 }
