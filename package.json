@@ -1,0 +1,10 @@
+{
+  "name": "typescript-workflow",
+  "version": "0.1.0",
+  "description": "Write github action workflows in typescript",
+  "main": "src/index.ts",
+  "scripts": {},
+  "keywords": [],
+  "author": "Drew Wyatt <drew.j.wyatt@gmail.com>",
+  "license": "UNLICENSED"
+}
