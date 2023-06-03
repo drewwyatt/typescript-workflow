@@ -1,4 +1,4 @@
-name: Simple Workflow
+name: Build and Trigger Workflow
 
 on: push
 
@@ -16,4 +16,4 @@ jobs:
   trigger-workflow:
     name: Trigger Workflow
     needs: [build-workflow]
-    uses: ./src/examples/simple-workflow.yml
+    uses: ./.github/workflows/simple-workflow.yml
